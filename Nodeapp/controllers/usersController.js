@@ -24,8 +24,6 @@ module.exports = {
       }
       console.log(userData);
       User.createUser(userData);
-      const token = jwt.sign({ data: req.body.email}, 'secret', { expiresIn: '1m' });
-      res.cookie('jwt', token, {httpOnly: true, maxAge: 60 * 1000})
       res.render('posts', {userData: userData});
     }
   },

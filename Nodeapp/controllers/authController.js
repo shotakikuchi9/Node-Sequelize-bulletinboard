@@ -4,8 +4,6 @@ module.exports = {
   vertifyToken: function(req, res, next) {
     console.log('vertify');
     const token = req.cookies.jwt
-    console.log(token);
-    console.log(req.isAuthenticated());
     if (token && req.isAuthenticated()) {
       jwt.verify(token, 'secret', (err, decodedToken) => {
         if(err) {
