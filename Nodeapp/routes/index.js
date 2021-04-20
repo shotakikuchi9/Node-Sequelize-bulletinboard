@@ -12,8 +12,6 @@ router.get('/register', usersController.showRegisterPage)
 router.post('/register',validator, usersController.saveUser)
 router.post('/login', passport.authenticate('local', {failureRedirect: '/login'}),
 (req, res) => {
-  // User.fetchUserDara(req, res, req.user)
-  console.log(req.user);
   const token = jwt.sign({ data: req.body.email}, 'secret', { expiresIn: '1m' });
   res.cookie('jwt', token, {httpOnly: true, maxAge: 60 * 1000})
   res.redirect('/posts')

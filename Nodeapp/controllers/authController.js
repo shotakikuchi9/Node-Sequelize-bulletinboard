@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-  vertifyToken: function(req, res, next) {
-    console.log('vertify');
+  vertifyToken: function (req, res, next) {
     const token = req.cookies.jwt
     if (token && req.isAuthenticated()) {
       jwt.verify(token, 'secret', (err, decodedToken) => {
-        if(err) {
+        if (err) {
           console.log(err);
         } else {
           req.decoded = decodedToken
@@ -14,13 +13,11 @@ module.exports = {
         }
       })
     } else {
-      console.log('no token');
       res.redirect('/login')
     }
   },
-  logout:function(req, res, next) {
+  logout: function (req, res, next) {
     req.logout();
-    console.log('ログアウト');
     res.redirect('/login')
   }
 }
