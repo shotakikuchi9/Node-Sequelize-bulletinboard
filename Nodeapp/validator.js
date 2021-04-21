@@ -1,5 +1,6 @@
 const { check, validationResult } = require('express-validator');
-const { userModel } = require('./models/index');
+const { userModel } = require('./models/user');
+
 
 module.exports = [
   check('name').not().isEmpty().withMessage('nust be a valid name'),
