@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
-  const userModel = sequelize.define(
-    'users',
+  const postModel = sequelize.define(
+    'posts',
     {
       id: {
         field: 'id',
@@ -9,19 +9,16 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true
       },
-      name: {
-        field: 'name',
+      title: {
+        field: 'title',
         type: DataTypes.STRING
       },
-      email: {
-        field: 'email',
+      content: {
+        field: 'content',
         type: DataTypes.STRING
-      },
-      password: {
-        field: 'password',
-        type: DataTypes.STRING
-      },
+      }
     }
-  );
-  return userModel
-} 
+  )
+  return postModel
+};
+
