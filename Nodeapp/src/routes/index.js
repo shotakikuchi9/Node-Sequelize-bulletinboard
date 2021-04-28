@@ -6,7 +6,8 @@ const authController = require('../controllers/authController');
 const postsController = require('../controllers/postsController');
 const userValidator = require('../validator/userValidator');
 const postValidator = require('../validator/postValidator');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { logout } = require('../controllers/authController');
 
 router.get('/login', usersController.showLoginPage);
 router.get('/register', usersController.showRegisterPage)

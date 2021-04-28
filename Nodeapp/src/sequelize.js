@@ -4,7 +4,8 @@ const userModel = require('./models/user');
 require('dotenv').config();
 const env = process.env
 const sequelize = new Sequelize(env.DB_NAME, env.DB_USER, env.DB_PASS, {
-  host: env.DB_HOST,
+  host: 'mysql',
+  port:3306,
   dialect: 'mysql'
 });
 (async () => await sequelize.sync({ alter: true }))();
