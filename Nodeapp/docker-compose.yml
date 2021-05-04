@@ -2,12 +2,12 @@ version: "3"
 services:
   mysql:
     image: mysql:5.7
-    env_file: 
-      -  ./mysql/mysql.env
+    env_file:
+      - ./mysql/mysql.env
     environment:
-      TZ: 'Asia/Tokyo'
+      TZ: "Asia/Tokyo"
     ports:
-      - "4306:3306"
+      - "3306:3306"
     volumes:
       - ./mysql/conf:/etc/mysql/conf.d/:ro
       - mysqldata:/var/lib/mysql
@@ -15,6 +15,8 @@ services:
       - default
   app:
     image: node:12
+    env_file:
+      - ./app.env
     environment:
       - TZ=Asia/Tokyo
       - DEBUG=app:*

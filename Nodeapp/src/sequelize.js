@@ -8,6 +8,14 @@ const sequelize = new Sequelize(env.DB_NAME, env.DB_USER, env.DB_PASS, {
   port:3306,
   dialect: 'mysql'
 });
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 (async () => await sequelize.sync({ alter: true }))();
 
 const User = userModel(sequelize);

@@ -15,7 +15,7 @@ module.exports = {
       await Post.create(postData);
       res.redirect('/posts')
     }
-  },
+  } ,
   showPostsData: function (req, res) {
     const postsData = [];
     Post.findAll({
