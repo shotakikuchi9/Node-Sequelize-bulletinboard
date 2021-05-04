@@ -7,7 +7,7 @@ services:
     environment:
       TZ: "Asia/Tokyo"
     ports:
-      - "3306:3306"
+      - "4306:3306"
     volumes:
       - ./mysql/conf:/etc/mysql/conf.d/:ro
       - mysqldata:/var/lib/mysql
