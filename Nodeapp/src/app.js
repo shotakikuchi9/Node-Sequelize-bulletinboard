@@ -7,9 +7,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
 const session = require('express-session')
-const User = require('./models/user')
 const localStrategy = require('passport-local').Strategy;
 const flash = require('connect-flash')
+const usersController = require('./controllers/usersController');
 
 const indexRouter = require('./routes/index');
 const app = express();
@@ -37,7 +37,7 @@ passport.serializeUser(function (email, done) {
 });
 
 passport.deserializeUser(function (email, done) {
-  User.fetchUserDara(email, done)
+  usersController.fetchUserDara(email, done)
 });
 
 passport.use(new localStrategy(
@@ -47,7 +47,7 @@ passport.use(new localStrategy(
     passReqToCallback: true,
     session: true
   }, function (req, email, password, done) {
-    User.checkUserData(req, email, password, done)
+    usersController.checkUserData(req, email, password, done)
   }
 ))
 

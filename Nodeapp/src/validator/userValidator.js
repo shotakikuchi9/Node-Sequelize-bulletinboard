@@ -1,11 +1,11 @@
 const { check, validationResult } = require('express-validator');
-const { userModel } = require('./models/user');
+const { User } = require('../sequelize');
 
 
 module.exports = [
   check('name').not().isEmpty().withMessage('nust be a valid name'),
   check('email').not().isEmpty().isEmail().custom(async function (value) {
-    await userModel.findAll({
+    await User.findAll({
       where: { email: value }
     }).then((users, err) => {
       if (err) {
@@ -17,7 +17,6 @@ module.exports = [
         return true
       }
     })
-
   }).withMessage('must be a valid email'),
   check('password').not().isEmpty().isLength({ min: 7 }).withMessage('must be a valid password'),
   check('passwordConfirmation').custom((value, { req }) => {
