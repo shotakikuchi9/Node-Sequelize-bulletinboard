@@ -10,4 +10,5 @@ module.exports = function(router) {
   router.get('/posts/:id/delete', authController.vertifyToken, postsController.deletePostData)
   router.get('/posts/:id/edit', authController.vertifyToken, postsController.showEditPage)
   router.post('/posts/:id/update', authController.vertifyToken, postValidator, postsController.updatePost)
+  router.get('/posts/:id/like', authController.vertifyToken, postsController.likePost)
 }
