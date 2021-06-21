@@ -4,8 +4,7 @@ Expressを用いた掲示板アプリです。
  
 # ライブラリ
  
-*  huga 3.5.2
-*  hogehuga 1.0.2
+
 *  bcrypt: ^5.0.1
 *  bootstrap: ^4.6.0
 *  connect-flash: ^0.1.1
