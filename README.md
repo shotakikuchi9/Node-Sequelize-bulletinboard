@@ -51,4 +51,4 @@ docker-compose up -d
  
  
 # 作成者
-* 菊池翔太
+菊池翔太
